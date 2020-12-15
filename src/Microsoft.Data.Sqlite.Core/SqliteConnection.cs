@@ -732,22 +732,29 @@ namespace Microsoft.Data.Sqlite
                     }
                 };
             }
-            // TODO: Move logic to DDEX provider
             else if (string.Equals(collectionName, DbMetaDataCollectionNames.DataSourceInformation, StringComparison.OrdinalIgnoreCase))
             {
                 return new DataTable(DbMetaDataCollectionNames.DataSourceInformation)
                 {
                     Columns =
                     {
+                        { DbMetaDataColumnNames.CompositeIdentifierSeparatorPattern },
                         { DbMetaDataColumnNames.DataSourceProductName },
-                        { DbMetaDataColumnNames.DataSourceProductVersion }
+                        { DbMetaDataColumnNames.DataSourceProductVersion },
+                        { DbMetaDataColumnNames.IdentifierCase, typeof(IdentifierCase) },
+                        { DbMetaDataColumnNames.QuotedIdentifierCase, typeof(IdentifierCase) },
+                        { DbMetaDataColumnNames.SupportedJoinOperators, typeof(SupportedJoinOperators) }
                     },
                     Rows =
                     {
                         new object[]
                         {
+                            @"\.",
                             "SQLite",
-                            ServerVersion
+                            ServerVersion,
+                            IdentifierCase.Insensitive,
+                            IdentifierCase.Insensitive,
+                            SupportedJoinOperators.Inner | SupportedJoinOperators.LeftOuter
                         }
                     }
                 };

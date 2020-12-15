@@ -624,6 +624,7 @@ namespace Microsoft.Data.Sqlite
 
             var DataType = new DataColumn(SchemaTableColumn.DataType, typeof(Type));
             var DataTypeName = new DataColumn("DataTypeName", typeof(string));
+            var ProviderType = new DataColumn(SchemaTableColumn.ProviderType, typeof(int));
 
             var IsLong = new DataColumn(SchemaTableColumn.IsLong, typeof(bool));
             var AllowDBNull = new DataColumn(SchemaTableColumn.AllowDBNull, typeof(bool));
@@ -658,6 +659,7 @@ namespace Microsoft.Data.Sqlite
             columns.Add(DataType);
             columns.Add(DataTypeName);
             columns.Add(AllowDBNull);
+            columns.Add(ProviderType);
             columns.Add(IsAliased);
             columns.Add(IsExpression);
             columns.Add(IsAutoIncrement);
@@ -682,6 +684,8 @@ namespace Microsoft.Data.Sqlite
                 schemaRow[DataType] = GetFieldType(i);
                 var dataTypeName = GetDataTypeName(i);
                 schemaRow[DataTypeName] = dataTypeName;
+                var providerType = sqlite3_column_type(Handle, i);
+                schemaRow[ProviderType] = providerType;
                 schemaRow[IsAliased] = columnName != GetName(i);
                 schemaRow[IsExpression] = columnName == null;
                 schemaRow[IsLong] = DBNull.Value;
@@ -714,11 +718,23 @@ namespace Microsoft.Data.Sqlite
                             .AppendLine("LIMIT 1;").ToString();
 
                         var type = (string?)command.ExecuteScalar();
-                        schemaRow[DataType] =
-                            (type != null)
-                                ? SqliteDataRecord.GetFieldType(type)
-                                : SqliteDataRecord.GetFieldTypeFromSqliteType(
-                                    SqliteDataRecord.Sqlite3AffinityType(dataTypeName));
+                        if (type != null)
+                        {
+                            schemaRow[DataType] = SqliteDataRecord.GetFieldType(type);
+                            schemaRow[ProviderType] = type switch
+                            {
+                                "integer" => SQLITE_INTEGER,
+                                "real" => SQLITE_FLOAT,
+                                "text" => SQLITE_TEXT,
+                                _ => SQLITE_BLOB
+                            };
+                        }
+                        else
+                        {
+                            var affinity = SqliteDataRecord.Sqlite3AffinityType(dataTypeName);
+                            schemaRow[DataType] = SqliteDataRecord.GetFieldTypeFromSqliteType(affinity);
+                            schemaRow[ProviderType] = affinity;
+                        }
 
                         command.CommandText = "SELECT COUNT(*) FROM sqlite_master WHERE name = $name AND type IN ('table', 'view')";
                         command.Parameters.AddWithValue("$name", tableName);

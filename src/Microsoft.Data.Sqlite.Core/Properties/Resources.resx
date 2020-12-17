@@ -219,4 +219,34 @@
   <data name="UnknownCollection" xml:space="preserve">
     <value>The requested collection '{collectionName}' is not defined.</value>
   </data>
+  <data name="AdvancedCategory" xml:space="preserve">
+    <value>Advanced</value>
+  </data>
+  <data name="CacheDescription" xml:space="preserve">
+    <value>The caching mode used by the connection.</value>
+  </data>
+  <data name="DataSourceDescription" xml:space="preserve">
+    <value>The path to the database file.</value>
+  </data>
+  <data name="DefaultTimeoutDescription" xml:space="preserve">
+    <value>The default timeout value for commands.</value>
+  </data>
+  <data name="ForeignKeysDescription" xml:space="preserve">
+    <value>A value indicating whether to enable foreign key constraints.</value>
+  </data>
+  <data name="ModeDescription" xml:space="preserve">
+    <value>The connection mode.</value>
+  </data>
+  <data name="PasswordDescription" xml:space="preserve">
+    <value>The encryption key.</value>
+  </data>
+  <data name="RecursiveTriggersDescription" xml:space="preserve">
+    <value>A value that indicates whether to enable recursive triggers.</value>
+  </data>
+  <data name="SecurityCategory" xml:space="preserve">
+    <value>Security</value>
+  </data>
+  <data name="SourceCategory" xml:space="preserve">
+    <value>Source</value>
+  </data>
 </root>

@@ -5,6 +5,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Data.Common;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
@@ -102,6 +103,9 @@ namespace Microsoft.Data.Sqlite
         ///     Gets or sets the database file.
         /// </summary>
         /// <value>The database file.</value>
+        [ResCategory("SourceCategory")]
+        [DisplayName(DataSourceKeyword)]
+        [ResDescription("DataSourceDescription")]
         [AllowNull]
         public virtual string DataSource
         {
@@ -113,6 +117,8 @@ namespace Microsoft.Data.Sqlite
         ///     Gets or sets the connection mode.
         /// </summary>
         /// <value>The connection mode.</value>
+        [ResCategory("SourceCategory")]
+        [ResDescription("ModeDescription")]
         public virtual SqliteOpenMode Mode
         {
             get => _mode;
@@ -148,6 +154,8 @@ namespace Microsoft.Data.Sqlite
         ///     Gets or sets the caching mode used by the connection.
         /// </summary>
         /// <value>The caching mode used by the connection.</value>
+        [ResCategory("AdvancedCategory")]
+        [ResDescription("CacheDescription")]
         public virtual SqliteCacheMode Cache
         {
             get => _cache;
@@ -160,6 +168,9 @@ namespace Microsoft.Data.Sqlite
         /// </summary>
         /// <value>The encryption key.</value>
         /// <seealso href="https://docs.microsoft.com/dotnet/standard/data/sqlite/encryption">Encryption</seealso>
+        [ResCategory("SecurityCategory")]
+        [ResDescription("PasswordDescription")]
+        [PasswordPropertyText(true)]
         [AllowNull]
         public string Password
         {
@@ -174,6 +185,9 @@ namespace Microsoft.Data.Sqlite
         ///     keys if, like in e_sqlite3, SQLITE_DEFAULT_FOREIGN_KEYS was used to compile the native library.
         /// </summary>
         /// <value>A value indicating whether to enable foreign key constraints.</value>
+        [ResCategory("AdvancedCategory")]
+        [DisplayName(ForeignKeysKeyword)]
+        [ResDescription("ForeignKeysDescription")]
         public bool? ForeignKeys
         {
             get => _foreignKeys;
@@ -186,6 +200,9 @@ namespace Microsoft.Data.Sqlite
         ///     is sent.
         /// </summary>
         /// <value>A value indicating whether to enable recursive triggers.</value>
+        [ResCategory("AdvancedCategory")]
+        [DisplayName(RecursiveTriggersKeyword)]
+        [ResDescription("RecursiveTriggersDescription")]
         public bool RecursiveTriggers
         {
             get => _recursiveTriggers;
@@ -196,6 +213,9 @@ namespace Microsoft.Data.Sqlite
         ///     Gets or sets the default <see cref="SqliteConnection.DefaultTimeout" /> value.
         /// </summary>
         /// <value>The default <see cref="SqliteConnection.DefaultTimeout" /> value.</value>
+        [ResCategory("AdvancedCategory")]
+        [DisplayName(DefaultTimeoutKeyword)]
+        [ResDescription("DefaultTimeoutDescription")]
         public int DefaultTimeout
         {
             get => _defaultTimeout;

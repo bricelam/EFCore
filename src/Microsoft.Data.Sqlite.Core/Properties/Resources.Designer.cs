@@ -256,6 +256,66 @@ namespace Microsoft.Data.Sqlite.Properties
                 GetString("UnknownCollection", nameof(collectionName)),
                 collectionName);
 
+        /// <summary>
+        /// Advanced
+        /// </summary>
+        public static string AdvancedCategory
+            => GetString("AdvancedCategory");
+
+        /// <summary>
+        /// The caching mode used by the connection.
+        /// </summary>
+        public static string CacheDescription
+            => GetString("CacheDescription");
+
+        /// <summary>
+        /// The path to the database file.
+        /// </summary>
+        public static string DataSourceDescription
+            => GetString("DataSourceDescription");
+
+        /// <summary>
+        /// The default timeout value for commands.
+        /// </summary>
+        public static string DefaultTimeoutDescription
+            => GetString("DefaultTimeoutDescription");
+
+        /// <summary>
+        /// A value indicating whether to enable foreign key constraints.
+        /// </summary>
+        public static string ForeignKeysDescription
+            => GetString("ForeignKeysDescription");
+
+        /// <summary>
+        /// The connection mode.
+        /// </summary>
+        public static string ModeDescription
+            => GetString("ModeDescription");
+
+        /// <summary>
+        /// The encryption key.
+        /// </summary>
+        public static string PasswordDescription
+            => GetString("PasswordDescription");
+
+        /// <summary>
+        /// A value that indicates whether to enable recursive triggers.
+        /// </summary>
+        public static string RecursiveTriggersDescription
+            => GetString("RecursiveTriggersDescription");
+
+        /// <summary>
+        /// Security
+        /// </summary>
+        public static string SecurityCategory
+            => GetString("SecurityCategory");
+
+        /// <summary>
+        /// Source
+        /// </summary>
+        public static string SourceCategory
+            => GetString("SourceCategory");
+
         private static string GetString(string name, params string[] formatterNames)
         {
             var value = _resourceManager.GetString(name)!;

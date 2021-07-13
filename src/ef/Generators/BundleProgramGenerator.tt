@@ -1,4 +1,4 @@
-﻿<#@ template visibility="internal" #>
+﻿<#@ template visibility="internal" linePragmas="false" #>
 <#@ parameter name="ContextType" type="System.String" #>
 <#@ parameter name="Assembly" type="System.String" #>
 <#@ parameter name="StartupAssembly" type="System.String" #>

@@ -14,12 +14,9 @@ namespace Microsoft.EntityFrameworkCore.Tools.Generators
     /// <summary>
     /// Class to produce the template output
     /// </summary>
-    
-    #line 1 "C:\Projects\efcore\src\ef\Generators\BundleProjectGenerator.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     internal partial class BundleProjectGenerator : BundleProjectGeneratorBase
     {
-#line hidden
         /// <summary>
         /// Create the template output
         /// </summary>
@@ -39,50 +36,23 @@ namespace Microsoft.EntityFrameworkCore.Tools.Generators
 
   <ItemGroup>
     <PackageReference Include=""Microsoft.EntityFrameworkCore.Design"" Version=""");
-            
-            #line 18 "C:\Projects\efcore\src\ef\Generators\BundleProjectGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EFCoreVersion));
-            
-            #line default
-            #line hidden
             this.Write("\" />\r\n  </ItemGroup>\r\n\r\n  <ItemGroup>\r\n    <ProjectReference Include=\"");
-            
-            #line 22 "C:\Projects\efcore\src\ef\Generators\BundleProjectGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Project));
-            
-            #line default
-            #line hidden
             this.Write("\" />\r\n");
-            
-            #line 23 "C:\Projects\efcore\src\ef\Generators\BundleProjectGenerator.tt"
 
   if (StartupProject != Project)
   {
 
-            
-            #line default
-            #line hidden
             this.Write("    <ProjectReference Include=\"");
-            
-            #line 27 "C:\Projects\efcore\src\ef\Generators\BundleProjectGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(StartupProject));
-            
-            #line default
-            #line hidden
             this.Write("\" />\r\n");
-            
-            #line 28 "C:\Projects\efcore\src\ef\Generators\BundleProjectGenerator.tt"
 
   }
 
-            
-            #line default
-            #line hidden
             this.Write("  </ItemGroup>\r\n\r\n</Project>\r\n");
             return this.GenerationEnvironment.ToString();
         }
-        
-        #line 1 "C:\Projects\efcore\src\ef\Generators\BundleProjectGenerator.tt"
 
 private string _EFCoreVersionField;
 
@@ -179,13 +149,7 @@ if ((StartupProjectValueAcquired == false))
 }
 
 
-        
-        #line default
-        #line hidden
     }
-    
-    #line default
-    #line hidden
     #region Base class
     /// <summary>
     /// Base class for this transformation

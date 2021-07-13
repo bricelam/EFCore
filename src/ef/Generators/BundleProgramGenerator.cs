@@ -14,12 +14,9 @@ namespace Microsoft.EntityFrameworkCore.Tools.Generators
     /// <summary>
     /// Class to produce the template output
     /// </summary>
-    
-    #line 1 "C:\Projects\efcore\src\ef\Generators\BundleProgramGenerator.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     internal partial class BundleProgramGenerator : BundleProgramGeneratorBase
     {
-#line hidden
         /// <summary>
         /// Create the template output
         /// </summary>
@@ -27,31 +24,14 @@ namespace Microsoft.EntityFrameworkCore.Tools.Generators
         {
             this.Write("using System.Reflection;\r\nusing Microsoft.EntityFrameworkCore.Design;\r\n\r\nreturn M" +
                     "igrationsBundle.Execute(\r\n    \"");
-            
-            #line 9 "C:\Projects\efcore\src\ef\Generators\BundleProgramGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ContextType));
-            
-            #line default
-            #line hidden
             this.Write("\",\r\n    Assembly.Load(new AssemblyName(\"");
-            
-            #line 10 "C:\Projects\efcore\src\ef\Generators\BundleProgramGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Assembly));
-            
-            #line default
-            #line hidden
             this.Write("\")),\r\n    Assembly.Load(new AssemblyName(\"");
-            
-            #line 11 "C:\Projects\efcore\src\ef\Generators\BundleProgramGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(StartupAssembly));
-            
-            #line default
-            #line hidden
             this.Write("\")),\r\n    args);\r\n");
             return this.GenerationEnvironment.ToString();
         }
-        
-        #line 1 "C:\Projects\efcore\src\ef\Generators\BundleProgramGenerator.tt"
 
 private string _ContextTypeField;
 
@@ -148,13 +128,7 @@ if ((StartupAssemblyValueAcquired == false))
 }
 
 
-        
-        #line default
-        #line hidden
     }
-    
-    #line default
-    #line hidden
     #region Base class
     /// <summary>
     /// Base class for this transformation
